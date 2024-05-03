@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* General */
+.container {
+    height: 100vh;
+    display: block;
+}
+
+.overlay {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgb(48, 48, 48, .85);
+    z-index: 100;
+}
+
+/* Input */
+.error {
+    margin-top: 1rem;
+    font-size: 1.25rem;
+    color: orange;
+    font-weight: 600;
+}
+
+/* Prompts */
+.prompt {
+    width: max(305px, 40%);
+    text-align: center;
+    border-radius: 10px;
+    border: 10px solid whitesmoke;
+    color: white;
+    padding: 1rem;
+    background-color: darkslateblue;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.prompt h1 {
+    max-width: 90%;
+    margin:auto;
+}
+
+.prompt input {
+    margin-top: 1rem;
+    padding: .1rem;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.prompt button {
+    display: block;
+    margin: auto;
+    padding: .25rem .5rem;
+    border-radius: 10px;
+    border: none;
+    background: lightgrey;
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 700;
+    transition: all 600ms ease;
+}
+
+.prompt button:hover {
+    cursor: pointer;
+    background: grey;
+    color: darkorange;
+}
+
+#close {
+    position: absolute;
+    top: 5%;
+    right: 15px;
+    font-weight: 700;
+    border: 3px solid transparent;
+    padding: .15rem .25rem;
+    transition: all 600ms ease;
+}
+
+#close:hover {
+    border-color: white;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* Utilities */
+
+.textcenter {
+    text-align: center;
+}
+
+.flex {
+    display: flex;
+}
