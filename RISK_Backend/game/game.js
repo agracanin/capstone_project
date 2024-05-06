@@ -248,6 +248,7 @@ export class Game {
             Asia:          27 - 38
             Australia      39 - 42
     */
+   
     calculateOwnsContinents() {
         if (this.game_state !== GAMESTATE.PLAYING_GAME) return { err: "Can Only Calculate Continent Owners While Game Is Playing" }
         this.calculateOwnsContinent(0, 0, 8);  // NA
@@ -299,12 +300,6 @@ export class Game {
         Object.assign(this.territories, Territories)
     }
 
-    /* 
-        Game Logic
-            Flow: 
-
-    */
-
     // Sends Updated Game State To Clients
     SendUpdateGameState() {
         this.Update()
@@ -328,6 +323,7 @@ export class Game {
 
     playerRewardNewTroops() {
         const player = this.players[this.current_player_turn]
+        const player1 = this.players[0]
         // Default Troop Reward
         let newTroops = Math.max(Math.floor(player.territories / 3), 3)
         // Continent Troop Reward 
@@ -381,10 +377,9 @@ export class Game {
         const defending_player = this.players[defending_territory.player]
         let defending_troops = defending_territory.troops
         console.log(`Blitz\nAttacking Troops: ${attacking_troops}\nDefending Troops: ${defending_troops}`)
-
-        // Remove Attacking Troops From Current Territory
+        // Adjust Troops
         attacking_territory.troops -= attacking_troops
-        // Number of Troops To Gaurantee A Win
+        // Calculate Troops Needed To Win Gauranteed
         const attackingTroopsNeeded = Math.ceil(defending_troops / .4167) + 1
         const gauranteedAttackerWin = attacking_troops >= attackingTroopsNeeded
 
@@ -433,13 +428,11 @@ export class Game {
         }
     }
 
-    // Reinforce Functions
-    // BFS Search, Finds A Valid Path Between Territories
+    // Reinforce - BFS
     CalculateReinforcePath(player_id, from_territory, to_territory, visited=[]) {
         console.log(`CalculateReinforcePath: from: ${from_territory} to ${to_territory} visited: ${visited}`)
         visited.push(from_territory)
         const f_territory = this.territories[from_territory]
-       // const t_territory = this.territories[to_territory]
         let result = false
         for(let conn of f_territory.connections) {
             console.log(`Compare connection ${conn} to ${to_territory}`)
@@ -449,11 +442,9 @@ export class Game {
             }
             if (conn == to_territory) {
                 console.log(`Complete!`)
-                // visited.push(to_territory)
                 return [true, visited]
             }
             const search = visited.find(element => element == conn) 
-            // console.log(`Search: ${search}`)
             if (search == undefined) {
                 result = this.CalculateReinforcePath(player_id, conn, to_territory, visited)
                 if (result) break;

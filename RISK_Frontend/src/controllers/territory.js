@@ -84,7 +84,6 @@ export class Territory {
     }
 
     DrawTroopIcon(troopCount = 0) {
-        // if (troopCount <= 0) return;
         this.GetCenter()
         this.RemoveTroopIcon()
 
@@ -99,7 +98,6 @@ export class Territory {
         const troopIcon = document.createElement("div")
         troopIcon.appendChild(troopCounter)
         troopIcon.id = `${this.name}-troopicon`
-        // troopIcon.style.background = this.color
         troopIcon.style.background = "purple"
         troopIcon.style.border = "2px solid black"
         troopIcon.style.borderRadius = "50%"

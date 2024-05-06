@@ -11,8 +11,7 @@ export class Continent {
 
     Run() {
         this.element = document.getElementById(this.name)
-        // Set Colors For Continets
-        // this.element.style.fill = this.defaultColor
+        
     }
 
     SetPlayerColor(color) { 

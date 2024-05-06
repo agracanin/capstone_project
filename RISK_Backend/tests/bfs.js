@@ -1,6 +1,6 @@
 import Game from '../game/game.js'
 
-/* Testing Game Functionalities */
+/* Test for reinforce algorithm */
 const DEBUG = true;
 
 const g = new Game("56")
@@ -20,12 +20,9 @@ g.addPlayer("test2", "2")
 g.addPlayer("test3", "3")
 g.addPlayer("test4", "4")
 
-// Print(g)
-
 g.randomlyAssignTerritories()
 Print(g)
 
-// Create Test Path
 g.territories[0].player = 0
 g.territories[2].player = 0
 g.territories[3].player = 0

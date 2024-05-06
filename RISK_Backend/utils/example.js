@@ -9,31 +9,38 @@ const game = {
     territories: [{}],
     players: [{}],
     cards: [{}],
-    messages: [{}],
     currentTurn: 1, // playerID
     uuid: "",
 }
 
 const continent = {
-    id: 1,
+    id: 0,
     name: "North America",
+    territory_count: 9,
     player: undefined,
+    bonus: 5
 }
 
 const territory = {
-    id: 1,
-    continent: 1,
-    player: undefined, // playerID
+    id: 0,
+    continent: 0,
+    player: undefined,
     name: "Alaska",
     troops: 0,
-    connections: [] // territoryID
+    connections: [1, 2, 36]
 }
 
 const player = {
     id: 1,
     username: "",
+    party_leader: false,
+    color: "",
+    alive: true,
+    cards: [{}],
     troops: 0,
     deployable_troops: 0,
+    territories: 0,
+    turn_state: 1,
 }
 
 const riskCard = {
