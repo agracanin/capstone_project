@@ -261,7 +261,6 @@ export class Game {
 
     // Pass Which Continent And The Range They Are In
     calculateOwnsContinent(continentID, territoryStartID, territoryEndID) {
-        // console.log(`Owns Continent ${continentID} Start: ${territoryStartID} End: ${territoryEndID}`)
         // Get Owner Of First Territory
         let p_id = this.territories[territoryStartID].player;
         for (let i = territoryStartID; i < territoryEndID; i++) {
